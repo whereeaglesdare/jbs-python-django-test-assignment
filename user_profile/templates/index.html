@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<img src="https://n6-img-fp.akamaized.net/free-vector/grey-square-pattern-background-vector-illustration_1164-1350.jpg" class="rounded-circle" width="150" height="150">
+<h1 class="cover-heading">{{ first_name }} {{ last_name }}</h1>
+<p class="lead"> {{ bio }}
+<p > {{ birth_date }} </p>
+<p class="lead">
+    <a href="{{ contacts }}" class="btn btn-lg btn-secondary">Send message</a>
+</p>
+
+{% endblock %}
