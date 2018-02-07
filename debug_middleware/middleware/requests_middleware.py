@@ -1,4 +1,4 @@
-from yourapp.models import MiddlewareModel
+from ..models import MiddlewareModel
 from django.utils.deprecation import MiddlewareMixin
 
 

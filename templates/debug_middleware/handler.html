@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Method</th>
+      <th scope="col">Path</th>
+      <th scope="col">Datetime</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for request in stored_requests %}
+    <tr>
+      <td>{{ request.request_method }}</td>
+      <td>{{ request.request_path }}</td>
+      <td>{{ request.dt_request }}</td>
+    </tr>
+  {% endfor %}
+ </tbody>
+</table>
+{% endblock %}
