@@ -2,10 +2,12 @@
 
 {% block content %}
 
+
 <div class="col s12 m8 offset-m2">
 
         <h2 class="flow-text">Update your information</h2>
-          <form action="." method="POST" class="padding">
+          <form action="." method="POST" class="padding" enctype="multipart/form-data">
+              <img src="/media/{{ profile_form.profile_photo.value }}" id="preview" width="150" height="150" class="rounded-circle">
             {% csrf_token %}
 
                 {% if profile_form.errors %}
@@ -24,11 +26,6 @@
                   {% endif %}
                 </div>
               {% endif %}
-
-
-
-
-
               <div class="form-group col-md-8 offset-md-2 text-center">
                 <label for="{{ user_form.first_name.id_for_label }}">First name</label>
                 <input type="text" name="first_name" class="form-control" id="{{ user_form.first_name.id_for_label }}" value="{{ user_form.first_name.value }}">
@@ -51,12 +48,35 @@
                  <input type="text" name="{{ profile_form.birth_date.html_name }}"  class="form-control" id="{{ profile_form.birth_date.id_for_label }}" value="{{ profile_form.birth_date.value|date:'Y-m-d'}}" required>
               </div>
 
+              <input id="{{profile_form.profile_photo.id_for_label}}" type="file" name="{{profile_form.profile_photo.html_name}}">
 
 
             <button type="submit" class="btn btn-light">OK</button>
 
         </form>
 
+ <script type="text/javascript">
+    function readURL(input) {
+
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+        reader.onload = function(e) {
+        $('#preview').attr('src', e.target.result);
+        }
+
+    reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#{{profile_form.profile_photo.id_for_label}}").change(function() {
+    readURL(this);
+    });
+ </script>
+
 </div>
+
+
+
 
 {% endblock %}
