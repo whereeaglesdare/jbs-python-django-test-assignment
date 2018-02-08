@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<table class="table table-dark">
+  <thead>
+    <tr>
+        <th scope="col"><p class="text-center">Setting</p></th>
+        <th scope="col"><p class="text-center">Value</p></th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for setting, value in settings.items %}
+    <tr>
+        <td><td><p class="text-left">{{ setting }}</p></td>
+        <td><p class="text-left">{{ value }} </p>
+
+      </td>
+    </tr>
+  {% endfor %}
+ </tbody>
+</table>
+{% endblock %}
