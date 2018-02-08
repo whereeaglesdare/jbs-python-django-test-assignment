@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'user_profile',
     'debug_middleware',
+    'management_command'
 ]
 
 MIDDLEWARE = [
