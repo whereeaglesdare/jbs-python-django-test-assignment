@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="col s12 m8 offset-m2">
+
+        <h2 class="flow-text">Update your information</h2>
+          <form action="." method="POST" class="padding">
+            {% csrf_token %}
+
+            <!--{{ user_form.non_field_errors }}-->
+            <!--{{ profile_form.non_field_errors }}-->
+            <!--{% for hidden_field in user_form.hidden_fields %}-->
+                <!--{{ hidden_field.errors }}-->
+                <!--{{ hidden_field }}-->
+            <!--{% endfor %}-->
+            <!--{% for hidden_field in profile_form.hidden_fields %}-->
+                <!--{{ hidden_field.errors }}-->
+                <!--{{ hidden_field }}-->
+            <!--{% endfor %}-->
+
+                {% if profile_form.errors %}
+                <div class="alert alert-error">
+
+                    {% for field in profile_form %}
+                      {% if field.errors %}
+                        {% for error in field.errors %}
+                          <a href="#id_{{ field.name }}" class="error">{{ error|escape }}</a>
+                        {% endfor %}
+                      {% endif %}
+                    {% endfor %}
+            
+                  {% if form.non_field_errors %}
+                    {{ form.non_field_errors }}
+                  {% endif %}
+                </div>
+              {% endif %}
+
+
+
+
+
+              <div class="form-group col-md-8 offset-md-2 text-center">
+                <label for="{{ user_form.first_name.id_for_label }}">First name</label>
+                <input type="text" name="first_name" class="form-control" id="{{ user_form.first_name.id_for_label }}" value="{{ user_form.first_name.value }}">
+                 {{ form.errors.name }}
+              </div>
+              <div class="form-group col-md-8 offset-md-2 text-center">
+                <label for="{{ user_form.last_name.id_for_label }}">Last name</label>
+                <input type="text" name="last_name" class="form-control" id="{{ user_form.last_name.id_for_label }}" value="{{ user_form.last_name.value }}">
+              </div>
+              <div class="form-group col-md-8 offset-md-2 text-center">
+                <label for="{{ profile_form.bio.id_for_label }}">Bio</label>
+                <textarea name="{{ profile_form.bio.html_name }}" maxlength="500" class="form-control" id="{{ profile_form.bio.id_for_label }}" value="{{ profile_form.bio.value }}" required>{{ profile_form.bio.value }}</textarea>
+              </div>
+              <div class="form-group col-md-8 offset-md-2 text-center">
+                <label for="{{ profile_form.contacts.id_for_label }}">Contacts</label>
+                 <input type="text" name="{{ profile_form.contacts.html_name }}" maxlength="500" class="form-control" id="{{ profile_form.contacts.id_for_label }}" value="{{ profile_form.contacts.value }}" required>
+              </div>
+              <div class="form-group col-md-8 offset-md-2 text-center">
+                <label for="{{ profile_form.birth_date.id_for_label }}">Birth date</label>
+                 <input type="text" name="{{ profile_form.birth_date.html_name }}"  class="form-control" id="{{ profile_form.birth_date.id_for_label }}" value="{{ profile_form.birth_date.value|date:'Y-m-d'}}" required>
+              </div>
+
+
+
+            <button type="submit" class="btn btn-light">OK</button>
+
+        </form>
+
+</div>
+
+{% endblock %}
