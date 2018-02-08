@@ -29,3 +29,7 @@ def edit_user(request):
         'user_form': user_form,
         'profile_form': profile_form
     })
+
+@login_required
+def edit_tag_example(request):
+    return render(request, 'edit_tag_template/tag_example.html')
