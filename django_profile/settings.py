@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'user_profile',
-    'debug_middleware'
+    'debug_middleware',
 ]
 
 MIDDLEWARE = [
@@ -66,7 +66,6 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'debug_middleware.context_processor.settings­context­processor.show_settings'
-                # 'debug_middleware.context_processor.settings-context-processor.show_settings',
             ],
         },
     },

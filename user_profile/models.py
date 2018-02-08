@@ -9,6 +9,7 @@ class UserProfile(models.Model):
     bio = models.TextField(max_length=500, blank=True)
     contacts = models.CharField(max_length=100, blank=True)
     birth_date = models.DateField(null=True, blank=True)
+    profile_photo = models.ImageField(upload_to='pic_folder/', default='pic_folder/None/no-img.jpg')
 
 
 @receiver(post_save, sender=User)
