@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'debug_middleware',
     'management_command',
     'async_queue',
-    'cron_app'
+    'cron_app',
+    'db_logger'
 ]
 
 MIDDLEWARE = [

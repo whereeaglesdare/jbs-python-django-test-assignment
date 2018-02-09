@@ -7,5 +7,4 @@ class SendForm(forms.Form):
     delay_sec = forms.IntegerField(validators=[MaxValueValidator(10), MinValueValidator(1)])
 
     def send_request(self):
-        print(self.cleaned_data['delay_sec'])
         send_http_request_task.delay(self.cleaned_data['delay_sec'])

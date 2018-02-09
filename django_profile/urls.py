@@ -6,6 +6,7 @@ from django.conf import settings
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from async_queue.views import SendView
 from cron_app.views import random_text_view
+from db_logger.views import db_logger_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -13,6 +14,7 @@ urlpatterns = [
     url(r'', include('debug_middleware.urls')),
     url(r'^send/$', SendView.as_view(), name="send"),
     url(r'^random_text/$', random_text_view, name="random-text"),
+    url(r'^db_logger/$', db_logger_view, name="db-logger"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += staticfiles_urlpatterns()
