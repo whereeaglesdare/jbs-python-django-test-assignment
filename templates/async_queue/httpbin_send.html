@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+  <div class="row">
+    <div class="col s12">
+      <h3>Send to httpbin queue</h3>
+      <form action="" method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-light" type="submit" name="action">Send</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}
