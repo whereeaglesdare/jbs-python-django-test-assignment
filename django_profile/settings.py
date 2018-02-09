@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'user_profile',
     'debug_middleware',
     'management_command',
-    'async_queue'
+    'async_queue',
+    'cron_app'
 ]
 
 MIDDLEWARE = [
@@ -133,12 +134,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 BROKER_URL = 'redis://localhost:6379'
 
 BROKER_URL = 'redis://localhost:6379'
+
 CELERY_RESULT_BACKEND = 'redis://localhost:6379'
+
 CELERY_ACCEPT_CONTENT = ['application/json']
+
 CELERY_TASK_SERIALIZER = 'json'
+
 CELERY_RESULT_SERIALIZER = 'json'
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-EMAIL_HOST = 'localhost'
-EMAIL_PORT = 1025
-DEFAULT_FROM_EMAIL = 'Picha <picha@example.com>'
