@@ -2,9 +2,14 @@
 
 {% block content %}
 <script>
-        $(function() {
-            $( "#{{ profile_form.birth_date.id_for_label }}" ).datepicker();
-        });
+       $( function() {
+            $( ".datepicker" ).datepicker(
+                {
+                    assumeNearbyYear: true,
+                    format: "dd-mm-yyyy"
+                }
+            );
+        } );
 </script>
 
 <div class="col s12 m8 offset-m2">
@@ -29,11 +34,14 @@
                     {{ form.non_field_errors }}
                   {% endif %}
                 </div>
+
               {% endif %}
+                {% block extrahead %}
+                  {{ profile_form.media }}
+              {% endblock %}
               <div class="form-group col-md-8 offset-md-2 text-center">
                 <label for="{{ user_form.first_name.id_for_label }}">First name</label>
-                <input type="text" name="first_name" class="form-control" id="{{ user_form.first_name.id_for_label }}" value="{{ user_form.first_name.value }}">
-                 {{ form.errors.name }}
+                  <input type="text" name="first_name" class="form-control" id="{{ user_form.first_name.id_for_label }}" value="{{ user_form.first_name.value }}">
               </div>
               <div class="form-group col-md-8 offset-md-2 text-center">
                 <label for="{{ user_form.last_name.id_for_label }}">Last name</label>
@@ -54,7 +62,9 @@
               <input id="{{profile_form.profile_photo.id_for_label}}" type="file" name="{{profile_form.profile_photo.html_name}}">
 
 
+
             <button type="submit" class="btn btn-light">OK</button>
+
 
         </form>
 
