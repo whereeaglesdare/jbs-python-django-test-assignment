@@ -3,8 +3,8 @@
 
 For loading fixtures use `python manage.py loaddata initial.json`
 Syncdb was deleted  in older Django versions.
-For implementing additional info for user was created extended model which related on standard User model by One-to-One
-relationship. In this project only **one user** with credentials:
+Extended model which related on standard User model by One-to-One relationship  was created for implementing additional info for user.
+In this project only **one user** with credentials:
 
 login: **admin**
 
@@ -54,6 +54,7 @@ For launching:
 (Response from httpbin.org in terminal)
 
 **TASK 10**
+
 Every minute from https://baconipsum.com/api/?type=all-meat loaded random text and stored in database.
 
 http://127.0.0.1:8000/random_text/
