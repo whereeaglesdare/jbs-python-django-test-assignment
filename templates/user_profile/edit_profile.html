@@ -3,7 +3,7 @@
 {% block content %}
 <script>
         $(function() {
-            $( "#id_date" ).datepicker();
+            $( "#{{ profile_form.birth_date.id_for_label }}" ).datepicker();
         });
 </script>
 
@@ -49,9 +49,8 @@
               </div>
               <div class="form-group col-md-8 offset-md-2 text-center">
                 <label for="{{ profile_form.birth_date.id_for_label }}">Birth date</label>
-                 <input  id="id_date" name="{{ profile_form.birth_date.html_name }}"  class="form-control " id="{{ profile_form.birth_date.id_for_label }}" value="{{ profile_form.birth_date.value|date:'d/m/Y'}}" required>
+                  {{ profile_form.birth_date }}
               </div>
-                <!--<input   name="{{ profile_form.birth_date.html_name }}"  class="myDateClass" id="{{ profile_form.birth_date.id_for_label }}" value="{{ profile_form.birth_date.value }}" required>-->
               <input id="{{profile_form.profile_photo.id_for_label}}" type="file" name="{{profile_form.profile_photo.html_name}}">
 
 
