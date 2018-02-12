@@ -1,3 +1,8 @@
+### UPDATES
+All updates and changes was made after deadline (Fri 9, February) and stored on **updates** branch.
+1. Change logging database signals. Adding to exceptions DebugMiddlewareModel and DBLoggerModel.
+2. Update custom calendar widget (located in user_profile/forms.py) with using bootstrap ui datepicker interface.
+
 ### TASK 1
 
 
@@ -59,8 +64,5 @@ Every minute from https://baconipsum.com/api/?type=all-meat loaded random text a
 
 http://127.0.0.1:8000/random_text/
 
-### UPDATES
-All updates and changes made after deadline (Fri 9, February) and stored on **updates** branch.
-1. Change logging database signals. Adding to exceptions DebugMiddlewareModel and DBLoggerModel.
 
 
